@@ -1,0 +1,11 @@
+{% extends "base.html" %}{% block content %}
+<div class="hero p-5 mb-4 rounded-4 text-white">
+<h1>Advanced Healthcare System</h1><p class="lead">Smart and centralized healthcare management for patients, doctors and appointments.</p>
+<a class="btn btn-light" href="{{ url_for('patients') }}">Manage Patients</a>
+</div>
+<div class="row g-3">
+{% for label,value in [('Patients',stats.patients),('Doctors',stats.doctors),('Appointments',stats.appointments),('Prescriptions',stats.prescriptions)] %}
+<div class="col-md-3"><div class="card stat-card shadow-sm p-4"><h6>{{label}}</h6><h2>{{value}}</h2></div></div>
+{% endfor %}
+</div>
+{% endblock %}

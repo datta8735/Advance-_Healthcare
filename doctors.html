@@ -1,0 +1,11 @@
+{% extends "base.html" %}{% block content %}
+<h2>Doctor Management</h2>
+<form method="post" class="card p-3 shadow-sm mb-4"><div class="row g-2">
+<input class="form-control col" name="name" placeholder="Doctor Name" required>
+<input class="form-control col" name="specialization" placeholder="Specialization">
+<input class="form-control col" name="phone" placeholder="Phone">
+<input class="form-control col" name="email" placeholder="Email" type="email">
+<div><button class="btn btn-primary">Add Doctor</button></div></div></form>
+<div class="card shadow-sm table-responsive"><table class="table mb-0"><thead><tr><th>ID</th><th>Name</th><th>Specialization</th><th>Phone</th><th>Email</th></tr></thead>
+<tbody>{% for d in doctors %}<tr><td>{{d.id}}</td><td>{{d.name}}</td><td>{{d.specialization}}</td><td>{{d.phone}}</td><td>{{d.email}}</td></tr>{% else %}<tr><td colspan="5" class="text-center p-4">No doctors yet.</td></tr>{% endfor %}</tbody></table></div>
+{% endblock %}

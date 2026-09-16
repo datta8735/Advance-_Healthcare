@@ -1,0 +1,9 @@
+{% extends "base.html" %}{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3"><h2>Patient Management</h2></div>
+<form method="post" class="card p-3 shadow-sm mb-4"><div class="row g-2">
+{% for n,p,t in [('name','Full Name','text'),('age','Age','number'),('gender','Gender','text'),('phone','Phone','text'),('email','Email','email'),('address','Address','text')] %}
+<div class="col-md-4"><input class="form-control" name="{{n}}" type="{{t}}" placeholder="{{p}}" {% if n=='name' %}required{% endif %}></div>{% endfor %}
+<div><button class="btn btn-primary">Add Patient</button></div></div></form>
+<div class="card shadow-sm"><div class="table-responsive"><table class="table mb-0"><thead><tr><th>ID</th><th>Name</th><th>Age</th><th>Gender</th><th>Phone</th><th>Email</th></tr></thead>
+<tbody>{% for p in patients %}<tr><td>{{p.id}}</td><td>{{p.name}}</td><td>{{p.age}}</td><td>{{p.gender}}</td><td>{{p.phone}}</td><td>{{p.email}}</td></tr>{% else %}<tr><td colspan="6" class="text-center p-4">No patients yet.</td></tr>{% endfor %}</tbody></table></div></div>
+{% endblock %}
